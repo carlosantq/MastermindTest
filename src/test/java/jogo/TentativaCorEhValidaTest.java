@@ -12,7 +12,7 @@ import org.junit.*;
  * e strings aleatórias.
  */
 
-public class EhCorValidaTest {
+public class TentativaCorEhValidaTest {
 	
 	private Tentativa tentativa;
 	
