@@ -4,6 +4,14 @@ import static org.junit.Assert.*;
 
 import org.junit.*;
 
+/*
+ * Classe de teste do método ehCorValida() da classe Tentativa.
+ * 
+ * Pelo método ser simples foi possível testar todas as entradas válidas.
+ * Testamos também algumas entradas inválidas coerentes (cores não válidas)
+ * e strings aleatórias.
+ */
+
 public class EhCorValidaTest {
 	
 	private Tentativa tentativa;

@@ -8,6 +8,18 @@ import org.junit.Test;
 import exceptions.CorInvalidaException;
 import exceptions.PosicaoInvalidaException;
 
+/*
+ * Classe de teste do método adicionarPino() da classe Tentativa.
+ * 
+ * Por ser impossível testar todas as combinações possíveis testamos a inserção de um pino de cada cor
+ * na primeira posição e então o preenchimento da Tentativa com pinos de todas as cores.
+ * 
+ * Ao fim foram testados os casos excepcionais de inserção de pinos em posições inexistentes e
+ * inserção de pinos de cores inexistentes.
+ * No primeiro caso foram testados apenas os valores das fronteiras, no segundo caso foram testadas 
+ * cores não existente no sistema de pinos.
+ */
+
 public class TentativaAdicionarPinoTest {
 	
 	private Tentativa tentativa;
