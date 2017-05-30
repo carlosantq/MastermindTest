@@ -20,15 +20,16 @@ import jogo.Senha;
  * Os testes são organizados de acordo com a classe a qual eles se referem, utilizado o atributo type 
  * com o valor 0 para testes da classe Retorno e o valor 1 para os testes da classe Senha.
  */
+
 @RunWith(Parameterized.class)
 public class AdicionarPinoTest {
 	
-	String input;
-	boolean expected;
-	Retorno retorno;
+	private String input;
+	private boolean expected;
+	private Retorno retorno;
 	//0 para teste do método da classe retorno e 1 para teste da classe senha
-	int type;
-	Senha senha;
+	private int type;
+	private Senha senha;
 	
 	
 	public AdicionarPinoTest(String input, boolean expected, int type){
