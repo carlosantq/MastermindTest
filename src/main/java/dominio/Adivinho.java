@@ -84,7 +84,7 @@ public class Adivinho implements Jogador {
 	 *            é a tentativa(conjunto de pinos) atual do jogador. É a
 	 *            tentativa na qual adicionaremos um novo pino após o método.
 	 */
-	public void adicionarNovoPinoATentativa(Tentativa tentativa) {
+	public boolean adicionarNovoPinoATentativa(Tentativa tentativa) {
 		System.out.println("digite um novo pino para sua tentativa. ");
 		System.out.println("Ele pode ser vermelho, azul, rosa, amarelo, roxo, verde, cinza ou laranja.");
 		Scanner scanIn = new Scanner(System.in);
@@ -93,11 +93,13 @@ public class Adivinho implements Jogador {
 		try {
 			tentativa.adicionarPino(posicaoDoNovoPino, corPino);
 			System.out.println("pino colocado com sucesso:" + corPino);
+			return true;
 		} catch (PosicaoInvalidaException e) {
 			System.out.println("posicao para inserir pino na jogada do jogador é inválida");
+			return false;
 		} catch (CorInvalidaException e) {
-			System.out.println(
-					"cor inválida para novo pino a ser inserido na tentativa do jogador." + "Tente novamente.");
+			System.out.println("cor inválida para novo pino a ser inserido na tentativa do jogador." + "Tente novamente.");
+			return false;
 		}
 	}
 

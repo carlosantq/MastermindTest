@@ -26,6 +26,21 @@ public class Tentativa {
 			tentativa[i] = "nenhum";
 		}
 	}
+	
+	/**
+	 * Método extra para criar uma tentativa já com os pinos setados
+	 * @param pinoUm
+	 * @param pinoDois
+	 * @param pinoTres
+	 * @param pinoQuatro
+	 */
+	public Tentativa(String pinoUm, String pinoDois, String pinoTres, String pinoQuatro){
+		tentativa = new String[4];
+		tentativa[0] = pinoUm;
+		tentativa[1] = pinoDois;
+		tentativa[2] = pinoTres;
+		tentativa[3] = pinoQuatro;
+	}
 
 	/**
 	 * - Função que representa a adição novo pino à tentativa. Para isso, é
@@ -40,7 +55,7 @@ public class Tentativa {
 	 * @throws PosicaoInvalidaException
 	 * @throws CorInvalidaException
 	 */
-	public void adicionarPino(int posicao, String cor) throws PosicaoInvalidaException, CorInvalidaException {
+	public boolean adicionarPino(int posicao, String cor) throws PosicaoInvalidaException, CorInvalidaException {
 		if (posicao < 0 || posicao > 3) {
 			throw new PosicaoInvalidaException();
 		} else if (CorEhValida(cor) == false) {
@@ -48,6 +63,8 @@ public class Tentativa {
 		} else {
 			tentativa[posicao] = cor;
 		}
+		
+		return true;
 	}
 
 	/**

@@ -33,6 +33,8 @@ public class Jogo {
 	 * o FornecedorDaSenha criou.
 	 */
 	private Jogada jogada;
+	
+	private Retorno retorno;
 
 	public Jogo() {
 		turno = 0;
@@ -52,6 +54,13 @@ public class Jogo {
 	public FornecedorDaSenha getFornecedor() {
 		return fornecedor;
 	}
+	
+	/**
+	 * Adicionado
+	 */
+	public Jogada getJogada(){
+		return jogada;
+	}
 
 	public void setJogada(Jogada jog) {
 		jogada = jog;
@@ -63,6 +72,20 @@ public class Jogo {
 	 */
 	public void criarSenha() {
 		fornecedor.criarSenha();
+	}
+	
+	/**
+	 * Adicionado
+	 */
+	public Tentativa getTentativa(){
+		return jogada.getTentativa();
+	}
+	
+	/**
+	 * Adicionado
+	 */
+	public Retorno getRetorno(){
+		return jogada.getRetorno();
 	}
 
 	/**
@@ -79,7 +102,7 @@ public class Jogo {
 		if (jogada == null) {
 			return false;
 		} else {
-			Retorno retorno = jogada.getRetorno();
+			this.retorno = jogada.getRetorno();
 			for (int i = 0; i < 4; i++) {
 				try {
 					if (retorno.getPino(i).compareTo("preto") != 0) {
@@ -127,17 +150,23 @@ public class Jogo {
 	 * feita pelo adivinho(o usuário que está jogando) para tentar descobrir a
 	 * senha.
 	 */
-	public void mostrarPinosTentativaDaJogada() {
+	public String [] mostrarPinosTentativaDaJogada() {
+		
+		String pinos [] = new String[4];
+		
 		try {
 			Tentativa tentativa = this.jogada.getTentativa();
 			System.out.println("A tentativa da jogada foi:");
 			for (int i = 0; i < tentativa.quantosPinosJaForamAdicionados(); i++) {
+				pinos[i] = tentativa.getPino(i);
 				System.out.println(tentativa.getPino(i));
 			}
 			System.out.println(" ");
 		} catch (PosicaoInvalidaException e) {
 			System.out.println("erro ao tentar acessar pinos de um retorno de uma jogada");
 		}
+		
+		return pinos;
 	}
 
 	/**
